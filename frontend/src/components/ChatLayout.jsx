@@ -4,8 +4,9 @@ import axios from "axios";
 import { io } from "socket.io-client";
 import Navbar from "../components/Navbar";
 
-const BASE_URL = "/api";
 const SOCKET_URL = import.meta.env.VITE_SOCKET_URL;
+const BASE_URL = `${SOCKET_URL}/api`;
+
 
 const mono = { fontFamily: "'JetBrains Mono', monospace" };
 

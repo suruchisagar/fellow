@@ -3,8 +3,9 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { io } from "socket.io-client";
 
-const BASE_URL = "/api";
 const SOCKET_URL = import.meta.env.VITE_SOCKET_URL;
+const BASE_URL = `${SOCKET_URL}/api`;
+
 
 const Chat = () => {
   const { userId: targetUserId } = useParams();
