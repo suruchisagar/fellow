@@ -33,7 +33,7 @@ const NotFound = () => {
         </div>
 
         <button
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/feed")}
           className="mt-2 bg-[#0f6e56] hover:bg-[#0d5f4a] active:scale-[0.98] text-white font-semibold px-6 py-3 rounded-xl text-sm transition-all shadow-lg shadow-[#0f6e56]/20"
         >
           Back to Feed →

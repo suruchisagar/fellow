@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
-const BASE_URL = "/api";
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL;
+const BASE_URL = `${SOCKET_URL}`;
 
 const mono = { fontFamily: "'JetBrains Mono', monospace" };
 

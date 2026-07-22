@@ -4,7 +4,7 @@ import axios from "axios";
 import { io } from "socket.io-client";
 
 const SOCKET_URL = import.meta.env.VITE_SOCKET_URL;
-const BASE_URL = `${SOCKET_URL}/api`;
+const BASE_URL = `${SOCKET_URL}`;
 
 
 const Chat = () => {

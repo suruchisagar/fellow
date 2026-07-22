@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const BASE_URL = "/api";
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL;
+const BASE_URL = `${SOCKET_URL}`;
 
 const ProtectedRoute = ({ children }) => {
   const [checking, setChecking] = useState(true);

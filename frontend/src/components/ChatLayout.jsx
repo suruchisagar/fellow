@@ -5,7 +5,7 @@ import { io } from "socket.io-client";
 import Navbar from "../components/Navbar";
 
 const SOCKET_URL = import.meta.env.VITE_SOCKET_URL;
-const BASE_URL = `${SOCKET_URL}/api`;
+const BASE_URL = `${SOCKET_URL}`;
 
 
 const mono = { fontFamily: "'JetBrains Mono', monospace" };
@@ -192,7 +192,7 @@ const ChatLayout = () => {
                   <p style={{ ...mono, color: "#9C8A80" }} className="text-xs">Go explore developers on the feed!</p>
                 </div>
                 <button
-                  onClick={() => navigate("/")}
+                  onClick={() => navigate("/feed")}
                   style={{ ...mono, background: "#B5703F" }}
                   className="text-[#FAF6F2] font-semibold px-4 py-2 rounded-xl text-xs transition-all hover:opacity-90"
                 >

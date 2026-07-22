@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
-const BASE_URL = "/api";
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL;
+const BASE_URL = `${SOCKET_URL}`;
 
 const mono = { fontFamily: "'JetBrains Mono', monospace" };
 
@@ -93,7 +94,7 @@ const Requests = () => {
               <p style={{ ...mono, color: "#9C8A80" }} className="text-sm">You're all caught up! Explore more developers.</p>
             </div>
             <button
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/feed")}
               style={{ ...mono, background: "#B5703F" }}
               className="text-[#1A120F] font-semibold px-6 py-2.5 rounded-xl text-sm transition-all hover:opacity-90 active:scale-[0.98]"
             >

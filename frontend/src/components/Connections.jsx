@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
-const BASE_URL = "/api";
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL;
+const BASE_URL = `${SOCKET_URL}`;
+
 
 const Connections = () => {
   const [connections, setConnections] = useState([]);
@@ -67,7 +69,7 @@ const Connections = () => {
               <p className="text-[#2a5a6e] text-sm">Go explore developers on the feed and start connecting!</p>
             </div>
             <button
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/feed")}
               className="bg-[#0f6e56] hover:bg-[#0d5f4a] active:scale-[0.98] text-white font-semibold px-6 py-2.5 rounded-xl text-sm transition-all shadow-lg shadow-[#0f6e56]/20"
             >
               Back to Feed →
