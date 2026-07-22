@@ -5,7 +5,7 @@ import { io } from "socket.io-client";
 import Navbar from "../components/Navbar";
 
 const BASE_URL = "/api";
-const SOCKET_URL = "http://localhost:7777";
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL;
 
 const mono = { fontFamily: "'JetBrains Mono', monospace" };
 

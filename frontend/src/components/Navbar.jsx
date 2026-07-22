@@ -12,7 +12,7 @@ const FellowLogo = () => (
 );
 
 const links = [
-  { path: "/", label: "Feed" },
+  { path: "/feed", label: "Feed" },
   { path: "/connections", label: "Connections" },
   { path: "/requests", label: "Requests" },
   { path: "/profile", label: "Profile" },
