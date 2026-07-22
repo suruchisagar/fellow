@@ -2,7 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-const BASE_URL = "/api";
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL;
+const BASE_URL = `${SOCKET_URL}/api`;
 
 const mono = { fontFamily: "'JetBrains Mono', monospace" };
 
