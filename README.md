@@ -4,6 +4,8 @@
 
 > Product tagline: *Grow your dev network. Ship together.*
 
+**Live:** [fellow-umber.vercel.app](https://fellow-umber.vercel.app)
+
 ## Features
 
 - **Auth** — signup / login / logout via JWT stored in an httpOnly cookie
