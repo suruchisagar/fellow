@@ -56,6 +56,49 @@ flowchart LR
 3. Route handlers read/write MongoDB via Mongoose models.
 4. Chat messages additionally flow over a Socket.IO connection, joined to a deterministic per-pair room and persisted to the `Chat` collection.
 
+## User Flow
+
+```mermaid
+flowchart TD
+    Landing["/ — Landing page"]
+    Signup["/signup"]
+    Login["/login"]
+    Feed["/feed — browse developers"]
+    Requests["/requests — review incoming requests"]
+    Connections["/connections — connections list"]
+    Chat["/chat/:userId — real-time chat"]
+    Profile["/profile — view/edit profile"]
+
+    Landing -->|new user| Signup
+    Landing -->|existing user| Login
+    Signup -->|account created, cookie set| Feed
+    Login -->|authenticated, cookie set| Feed
+
+    Feed -->|"interested"| SendReq{Request sent}
+    Feed -->|"ignored"| Feed
+    SendReq --> Feed
+
+    Requests -->|accept| Connections
+    Requests -->|reject| Requests
+
+    Connections -->|open a connection| Chat
+    Chat -->|send/receive messages| Chat
+
+    Feed --> Requests
+    Feed --> Connections
+    Feed --> Profile
+```
+
+1. **Landing** — unauthenticated visitor chooses to sign up or log in.
+2. **Signup / Login** — on success the backend sets an httpOnly JWT cookie; the frontend redirects to `/feed`.
+3. **Feed** — the authenticated user swipes through developers not yet interacted with, marking each `interested` or `ignored`.
+4. **Requests** — the recipient of an `interested` request reviews it and marks it `accepted` or `rejected`.
+5. **Connections** — once a request is `accepted`, both users appear in each other's connections list.
+6. **Chat** — opening a connection starts a Socket.IO session (joins a deterministic room for that pair) for real-time 1:1 messaging, persisted to MongoDB.
+7. **Profile** — accessible at any point to view or edit personal details.
+
+All routes other than Landing/Login/Signup are gated by `ProtectedRoute`, which checks the session via `GET /profile/view` and redirects to `/login` if it fails.
+
 ## API Endpoints
 
 | Method | Path | Auth | Description |
